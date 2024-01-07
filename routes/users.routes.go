@@ -33,6 +33,7 @@ func PostUsersHandler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		w.WriteHeader(http.StatusBadRequest) //400
 		w.Write([]byte(err.Error()))
+		return
 	}
 	json.NewEncoder(w).Encode(&user)
 }
