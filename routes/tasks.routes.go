@@ -28,11 +28,12 @@ func GetTaskHandler(w http.ResponseWriter, r *http.Request) {
 func PostTaskHandler(w http.ResponseWriter, r *http.Request) {
 	var task models.Task
 	json.NewDecoder(r.Body).Decode(&task)
-	CreatedUser := db.DB.Create(&task)
-	err := CreatedUser.Error
+	CreatedTask := db.DB.Create(&task)
+	err := CreatedTask.Error
 	if err != nil {
 		w.WriteHeader(http.StatusBadRequest) //400
 		w.Write([]byte(err.Error()))
+		return
 	}
 	json.NewEncoder(w).Encode(&task)
 }
