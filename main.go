@@ -21,8 +21,8 @@ func main() {
 	r.HandleFunc("/user", routes.PostUsersHandler).Methods("POST")
 	r.HandleFunc("/user/{id}", routes.DeleteUsersHandler).Methods("DELETE")
 	// task routes
-	r.HandleFunc("/tasks", routes.GetTaskHandler).Methods("GET")
-	r.HandleFunc("/task/{id}", routes.GetTasksHandler).Methods("GET")
+	r.HandleFunc("/tasks", routes.GetTasksHandler).Methods("GET")
+	r.HandleFunc("/task/{id}", routes.GetTaskHandler).Methods("GET")
 	r.HandleFunc("/task", routes.PostTaskHandler).Methods("POST")
 	r.HandleFunc("/task/{id}", routes.DeleteTaskHandler).Methods("DELETE")
 	http.ListenAndServe(":3000", r)

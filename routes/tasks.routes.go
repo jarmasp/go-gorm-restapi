@@ -17,7 +17,7 @@ func GetTasksHandler(w http.ResponseWriter, r *http.Request) {
 func GetTaskHandler(w http.ResponseWriter, r *http.Request) {
 	var task models.Task
 	params := mux.Vars(r)
-	db.DB.First(&task, params["ID"])
+	db.DB.First(&task, params["id"])
 	if task.ID == 0 {
 		w.WriteHeader(http.StatusNotFound)
 		w.Write([]byte("task not found"))

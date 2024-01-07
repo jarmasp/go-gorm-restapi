@@ -17,7 +17,7 @@ func GetUsersHandler(w http.ResponseWriter, r *http.Request) {
 func GetUserHandler(w http.ResponseWriter, r *http.Request) {
 	var user models.User
 	params := mux.Vars(r)
-	db.DB.First(&user, params["ID"])
+	db.DB.First(&user, params["id"])
 	if user.ID == 0 {
 		w.WriteHeader(http.StatusNotFound)
 		w.Write([]byte("user not found"))
