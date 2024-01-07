@@ -18,6 +18,6 @@ func main() {
 	r.HandleFunc("/users", routes.GetUsersHandler).Methods("GET")
 	r.HandleFunc("/user/{id}", routes.GetUserHandler).Methods("GET")
 	r.HandleFunc("/user", routes.PostUsersHandler).Methods("POST")
-	r.HandleFunc("/user", routes.DeleteUsersHandler).Methods("DELETE")
+	r.HandleFunc("/user/{id}", routes.DeleteUsersHandler).Methods("DELETE")
 	http.ListenAndServe(":3000", r)
 }
